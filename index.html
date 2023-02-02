@@ -21,7 +21,7 @@
     input {
       width: 100%;
       padding: 5px;
-      border: 1px solid pink;
+      border: 1px solid lightcyan;
       font-size: 1em;
       box-sizing: border-box;
 
@@ -29,6 +29,14 @@
 
     input::placeholder {
       color: rgb(0, 0, 0, .2);
+    }
+
+    input.error {
+      border-color: brown;
+    }
+
+    input.validate {
+      border-color: lightgreen;
     }
   </style>
 

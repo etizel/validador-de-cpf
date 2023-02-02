@@ -20,7 +20,10 @@ export default class ValidarCPF {
   validateOnChange(cpfElement) {
     if (this.validate(cpfElement.value)) {
       cpfElement.value = this.format(cpfElement.value);
+      cpfElement.classList.add('validate');
+      cpfElement.classList.remove('error');
     } else {
+      cpfElement.classList.add('error');
     }
     console.log(this.validate(cpfElement.value));
   }
