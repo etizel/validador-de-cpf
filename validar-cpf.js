@@ -12,4 +12,8 @@ export default class ValidarCPF {
     const cpfClean = this.clean(cpf);
     return this.construct(cpfClean);
   }
+
+  addEvent() {
+    this.element.addEventListener('change', () => {});
+  }
 }
