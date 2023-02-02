@@ -13,7 +13,16 @@ export default class ValidarCPF {
     return this.construct(cpfClean);
   }
 
+  validateOnChange(cpfElement) {
+    console.log(this.format(cpfElement.value));
+  }
+
   addEvent() {
-    this.element.addEventListener('change', () => {});
+    this.element.addEventListener('change', () => {
+      this.validateOnChange(this.element);
+    });
+  }
+  start() {
+    this.addEvent();
   }
 }
