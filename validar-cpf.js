@@ -12,9 +12,17 @@ export default class ValidarCPF {
     const cpfClean = this.clean(cpf);
     return this.construct(cpfClean);
   }
+  validate(cpf) {
+    const matchCpf = cpf.match(/(?:\d{3}[-.\s]?){3}\d{2}/g);
+    return matchCpf && matchCpf[0] === cpf;
+  }
 
   validateOnChange(cpfElement) {
-    console.log(this.format(cpfElement.value));
+    if (this.validate(cpfElement.value)) {
+      cpfElement.value = this.format(cpfElement.value);
+    } else {
+    }
+    console.log(this.validate(cpfElement.value));
   }
 
   addEvent() {
@@ -24,5 +32,6 @@ export default class ValidarCPF {
   }
   start() {
     this.addEvent();
+    return this;
   }
 }
