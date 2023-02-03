@@ -24,6 +24,7 @@ export default class ValidarCPF {
       cpfElement.classList.remove('error');
     } else {
       cpfElement.classList.add('error');
+      cpfElement.nextElementSibling.classList.add('active');
     }
     console.log(this.validate(cpfElement.value));
   }
@@ -33,8 +34,18 @@ export default class ValidarCPF {
       this.validateOnChange(this.element);
     });
   }
+  addErrorSpan() {
+    const spanElement = document.createElement('span');
+    spanElement.classList.add('erro-text');
+    spanElement.innerText = 'CPF inválido';
+    this.element.parentElement.insertBefore(
+      spanElement,
+      this.element.nextElementSibling,
+    );
+  }
   start() {
     this.addEvent();
+    this.addErrorSpan();
     return this;
   }
 }
